@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="ChurchApp">
+
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>AngularJS Plunker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl"></body>
+    <div class="container">
+      <form ng-submit="createWorker(worker)">
+          First Name: <input class="form-control" placeholder="fname" ng-model="worker.personal.fname" />
+          Last Name: <input class="form-control" placeholder="laname" ng-model="worker.personal.lname" />
+          Gender: <input type="radio" name="gender" value="male" ng-model="worker.personal.gender"> Male
+          <input type="radio" name="gender" value="female" ng-model="worker.personal.gender"> Female
+          <input type="radio" name="gender" value="other" ng-model="worker.personal.gender"> Other</br>
+          Home Address: <input class="form-control" placeholder="address" ng-model="worker.personal.address" />
+          Phone Number: <input class="form-control" placeholder="phone" ng-model="worker.personal.phone" />
+          <label> Church Branch Details</label>
+          Branch:  <select ng-model="worker.church.branch">
+              <option>Lagos, Ikeja</option>
+              <option>Port harcourt, GRA</option>
+            </select><br>
+          Department: <input class="form-control" placeholder="Church department" ng-model="worker.church.dept" />
+          Tithe No:<input class="form-control" placeholder="Tithe no" ng-model="worker.church.titheno" />
+          Attended Bible School?
+          <input type="radio" name="bibleSchool" ng-model="worker.church.bibleSchool" value="yes" checked>Yes
+          <input type="radio" name="bibleSchool" ng-model="worker.church.bibleSchool" value="no"> No<br>
+          Bible school graduation date:<input class="form-control" placeholder="Date graduated" ng-model="worker.church.bschDate" />
+          Upload Certificate <input class="form-control" ng-model="worker.church.bschcert" />
+          <label>School Details</label>
+            Higehst level of Education
+            <select ng-model="worker.school.level">
+                <option>SSCE</option>
+                <option>First Degree</option>
+              </select><br>
+            <label>Employment Details</label>
+            Do you have a job?
+            <input type="radio" name="job" ng-model="worker.employment.job" value="yes" checked>Yes
+            <input type="radio" name="job" ng-model="worker.employment.job" value="no"> No<br>
+          <button class="btn btn-primary btn-block">Register</button>
+
+      </form>
+      <div>
+        <table class="table" ng-repeat="w in workers | orderBy: 'fname'">
+          <tr>
+              <th>Name</th>
+              <th>Branch</th>
+              <th>Department</th>
+              <th>Bible School?</th>
+          </tr>
+          <tr>
+              <td>{{w.personal.fname}} {{worker.personal.lname}}</td>
+              <td>{{w.church.branch}}</td>
+              <td>{{w.church.dept}}</td>
+              <td>{{w.church.bibleSchool}}</td>
+          </tr>
+          
+        </table>
+      </div>
+    </div>
+    <script src="../contollers/auth.js"></script>
+    <script src="../contollers/main.js"></script>
+    
+  </body>
+
+</html>

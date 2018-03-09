@@ -1,0 +1,1 @@
+A full stack MEAN application using passport for authentication

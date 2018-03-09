@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="churchApp">
+
+  <head>
+    <title>Worker Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <div class="container" ng-controller="authCtrl">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h1>Worker Registeration</h1>
+        <!-- LOGIN FORM -->
+        <form class="form-auth" ng-submit="signup()" method="post">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" ng-model="user.username" name="username">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" ng-model="user.password" name="password">
+          </div>
+          <button type="submit" class="btn btn-warning btn-lg">Register</button>
+        </form>
+        <hr>
+        <p>Registered?
+          <a href="/login">Login</a>
+        </p>
+        <p>Or go
+          <a href="/">Home</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>
